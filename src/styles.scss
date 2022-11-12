@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --hdr: 35px;
+  --footer: 60px;
+  --main: calc(100vh - calc(var(--hdr) + var(--footer)));
+  --gap: 15px;
+  --err-color: darkred;
+  --success-color: darkgreen;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 300px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* ============== */
+/* global classes */
+/* ============== */
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

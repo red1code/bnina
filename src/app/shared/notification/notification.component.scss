@@ -1,0 +1,45 @@
+.wrapper {
+  color: #fff;
+  display: flex;
+}
+
+.wrapper>div {
+  padding: 5px;
+}
+
+.material-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.material-icon i {
+  font-size: 250%;
+}
+
+.msg {
+  flex: 1;
+}
+
+h2, p {
+  padding: 0;
+  margin: 0;
+}
+
+.close-btn {
+  padding: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error {
+  background-color: #C8102E;
+}
+
+.warning {
+  background-color: #FF6900;
+}
+
+.info {
+  background-color: #007DBA;
+}

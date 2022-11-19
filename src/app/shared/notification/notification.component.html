@@ -1,18 +1,11 @@
-<div class="wrapper" *ngIf="notificationMessage" [ngClass]="{
-    'error': notificationType === types.ERROR,
-    'warning': notificationType === types.WARNING, 
-    'info': notificationType === types.INFO}">
+<div class="wrapper" *ngIf="notificationMessage" 
+    [ngClass]="{
+      'error': notificationType === types.ERROR,
+      'info': notificationType === types.INFO,
+      'success': notificationType === types.SUCCESS
+    }">
 
-  <div class="material-icon">
-    <i class="material-icons" *ngIf="notificationType === types.ERROR">error</i>
-    <i class="material-icons" *ngIf="notificationType === types.WARNING">warning</i>
-    <i class="material-icons" *ngIf="notificationType === types.INFO">info</i>
-  </div>
-
-  <div class="msg">
-    <h2>{{ notificationType }}</h2>
-    <p>{{ notificationMessage }}</p>
-  </div>
+  <div class="msg">{{ notificationMessage }}</div>
 
   <div>
     <i class="material-icons close-btn" (click)="close()">close</i>

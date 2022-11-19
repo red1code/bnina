@@ -15,14 +15,7 @@ export class NotificationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.showNotification(this.notificationType, this.notificationMessage);
-  }
-
-  showNotification(type: NOTIFICATION_TYPES, message: string) {
-    this.notificationType = type;
-    this.notificationMessage = message;
-  }
+  ngOnInit(): void { }
 
   close() {
     this.closeNotification.emit();

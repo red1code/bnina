@@ -1,39 +1,30 @@
 .wrapper {
   color: #fff;
   display: flex;
+  border-radius: 4px;
 }
 
 .wrapper>div {
-  padding: 5px;
-}
-
-.material-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.material-icon i {
-  font-size: 250%;
+  padding: calc(var(--gap) / 2);
 }
 
 .msg {
   flex: 1;
-}
-
-h2, p {
-  padding: 0;
-  margin: 0;
+  overflow-wrap: break-word;
 }
 
 .close-btn {
-  padding: 5px;
+  padding: calc(var(--gap) / 3);
   font-weight: bold;
   cursor: pointer;
 }
 
 .error {
   background-color: var(--warn-color);
+}
+
+.success {
+  background-color: var(--success-color);
 }
 
 .warning {

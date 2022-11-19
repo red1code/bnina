@@ -27,6 +27,14 @@ export class AuthService {
       );
   }
 
+  checkAuthentication(): Promise<boolean> {
+    return new Promise(
+      (resolve, reject) => this.afAuth.onAuthStateChanged(
+        user => user ? resolve(true) : reject()
+      )
+    )
+  }
+
   logOut() {
     return this.afAuth.signOut();
   }

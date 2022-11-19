@@ -33,13 +33,13 @@ h2, p {
 }
 
 .error {
-  background-color: #C8102E;
+  background-color: var(--warn-color);
 }
 
 .warning {
-  background-color: #FF6900;
+  background-color: var(--warn-color);
 }
 
 .info {
-  background-color: #007DBA;
+  background-color: var(--info-color);
 }

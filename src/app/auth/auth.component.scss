@@ -1,0 +1,53 @@
+.container {
+  height: 100%;
+
+  form {
+    width: 100%;
+    margin-inline: var(--gap);
+    padding: var(--gap);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(102, 102, 102, 0.9);
+
+    label {
+      margin-left: 90px;
+    }
+
+    .input {
+      position: relative;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .validations {
+      margin-left: 90px;
+    }
+
+    .btns-container {
+      margin-top: var(--gap);
+      display: flex;
+      gap: var(--gap);
+
+      .submit-btn {
+        flex: 1;
+      }
+    }
+  }
+
+  .err-container {
+    margin-top: var(--gap);
+  }
+
+  .success-alert {
+    padding: var(--gap);
+    color: var(--success-color);
+    background-color: #d5f1de;
+    border: 1px solid #c0eace;
+    border-radius: 4px;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-top: var(--gap);
+  }
+}

@@ -1,1 +1,19 @@
+<header>
+  <button type="button" routerLink="/home">Home</button>
+  <button type="button" routerLink="/profile">Profile</button>
+
+  <span *ngIf="user | async"> Welcome <strong>{{ (user | async)?.firstName }}</strong></span>
+
+  <span style="float: right;">
+    <button type="button" *ngIf="user | async" (click)="logOut()">Log out</button>
+    <button type="button" *ngIf="!(user | async)" routerLink="/auth">Log in</button>
+  </span>
+
+  <!-- <PRe *ngIf="user | async">
+    {{ user | async | json }}
+  </PRe> -->
+
+  <hr>
+</header>
+
 <router-outlet></router-outlet>

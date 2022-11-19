@@ -1,10 +1,90 @@
+<div class="container center-content">
+  <!-- ********************** -->
+  <!-- send verification code -->
+  <!-- ********************** -->
+  <form *ngIf="codeSent===false" #phoneForm="ngForm" ngForm 
+        (ngSubmit)="sendVerificationCode()">
 
+    <label for="phone"><small>Phone Number</small></label>
+    <div class="input">
+      <ngx-mat-intl-tel-input class="ngx-floating" 
+        [preferredCountries]="['dz']" 
+        [enablePlaceholder]="true"
+        inputPlaceholder="Enter your number here" 
+        name="phone-number" 
+        describedBy="phoneInput" 
+        [(ngModel)]="phoneNumber"
+        [required]="true"
+        #phoneNumberInput="ngModel">
+      </ngx-mat-intl-tel-input>
+    </div>
 
+    <div *ngIf="phoneNumberInput.invalid && (phoneNumberInput.dirty || phoneNumberInput.touched)" 
+          class="validations">
+      <mat-error *ngIf="phoneNumberInput.errors?.['required'] && 
+                  !phoneNumberInput.errors?.['validatePhoneNumber']">
+        Phone number is required.
+      </mat-error>
+      <mat-error *ngIf="phoneNumberInput.errors?.['validatePhoneNumber']">
+        Invalid Number.
+      </mat-error>
+    </div>
 
+    <div class="btns-container">
+      <button type="submit" mat-raised-button color="primary" class="submit-btn" 
+              [disabled]="phoneForm.invalid || submitting">
+        Submit
+      </button>
+      <button type="reset" mat-raised-button color="warn" [disabled]="submitting">
+        Reset
+      </button>
+    </div>
 
+    <div id="reCaptcha-container"></div>
 
-<!-- <app-notification
-  [notificationType]="notificationTypes.INFO"
-  [notificationMessage]="'hello there!'"
-  (closeNotification)="closeNote()">
-</app-notification> -->
+    <div *ngIf="errMsg" class="err-container">
+      <app-notification
+        [notificationType]="notificationTypes.ERROR" 
+        [notificationMessage]="errMsg"
+        (closeNotification)="closeNotification()">
+      </app-notification>
+    </div>
+
+  </form>
+
+  <!-- ************************** -->
+  <!-- verify the number & login -->
+  <!-- ************************** -->
+  <form *ngIf="codeSent===true" (ngSubmit)="vefifyCodeAndLogin()" 
+        #codeForm="ngForm">
+
+    <div class="success-alert">Code sent successfully to your phone.</div>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Verification code</mat-label>
+      <input type="text" id="code" name="code" placeholder="Enter the code here please" matInput 
+            [(ngModel)]="code" required minlength="6">
+    </mat-form-field>
+
+    <div class="btns-container">
+      <button type="submit" mat-raised-button color="primary" class="submit-btn" 
+              [disabled]="codeForm.invalid || submitting">
+        Log in
+      </button>
+      <button type="button" mat-raised-button color="warn" class="reset-btn" (click)="changeNumber()"
+              [disabled]="submitting">
+        Change number
+      </button>
+    </div>
+
+    <div *ngIf="errMsg" class="err-container">
+      <app-notification 
+        [notificationType]="notificationTypes.ERROR" 
+        [notificationMessage]="errMsg"
+        (closeNotification)="closeNotification()">
+      </app-notification>
+    </div>
+
+  </form>
+
+</div>

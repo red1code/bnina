@@ -1,0 +1,30 @@
+.container {
+  height: 100%;
+
+  form {
+    width: 100%;
+    margin-inline: var(--gap);
+    padding: var(--gap);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(102, 102, 102, 0.9);
+
+    .btns-container {
+      margin-top: var(--gap);
+      display: flex;
+      gap: var(--gap);
+
+      .submit-btn {
+        flex: 1;
+      }
+    }
+
+    .err-container {
+      margin-top: var(--gap);
+    }
+
+    mat-form-field {
+      width: 100%;
+      margin-top: var(--gap);
+    }
+  }
+}

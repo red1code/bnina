@@ -1,0 +1,45 @@
+<div class="container center-content">
+  <form #signupForm="ngForm" (ngSubmit)="submitForm(signupForm)">
+
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input type="text" id="firstName" name="first-name" placeholder="Enter your first name here" matInput 
+            ngModel #firstName="ngModel" required minlength="3">
+      <mat-error *ngIf="firstName.touched && firstName.invalid">invalid name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input type="text" id="lastName" name="last-name" placeholder="Enter your last name here" matInput
+            ngModel #lastName="ngModel" required minlength="3">
+      <mat-error *ngIf="lastName.touched && lastName.invalid">invalid name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" id="email" name="email" placeholder="Enter your email here" matInput
+             ngModel #email="ngModel" required 
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+      <mat-error *ngIf="email.touched && email.invalid">invalid email.</mat-error>
+    </mat-form-field>
+
+    <div class="btns-container">
+      <button type="submit" mat-raised-button color="primary" class="submit-btn" 
+              [disabled]="signupForm.invalid || submitting">
+        Sign up
+      </button>
+      <button type="reset" mat-raised-button color="warn" [disabled]="submitting">
+        Reset
+      </button>
+    </div>
+
+    <div *ngIf="errMsg" class="err-container">
+      <app-notification 
+        [notificationType]="notificationTypes.ERROR" 
+        [notificationMessage]="errMsg"
+        (closeNotification)="closeNotification()">
+      </app-notification>
+    </div>
+
+  </form>
+</div>

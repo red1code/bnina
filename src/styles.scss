@@ -5,13 +5,15 @@
   --gap: 15px;
 
   --primary-color: #643235;
-  --accent-color: #f1faf9;
+  --accent-color: #43ff92;
   --warn-color: #f44336;
   --info-color: #007DBA;
   --success-color: darkgreen;
 }
 
+html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
   min-width: 300px;
@@ -26,14 +28,4 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

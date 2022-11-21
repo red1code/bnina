@@ -1,0 +1,19 @@
+<div class="container" *ngIf="user$ | async">
+
+    <a routerLink="/home" routerLinkActive="active-link" class="tab">
+      <i class="material-icons">home</i>
+    </a>
+
+    <a routerLink="/favorits" routerLinkActive="active-link" class="tab">
+      <i class="material-icons">favorite</i>
+    </a>
+
+    <a routerLink="/my-orders" routerLinkActive="active-link" class="tab">
+      <i class="material-icons">shopping_cart</i>
+    </a>
+
+    <a routerLink="/profile" routerLinkActive="active-link" class="tab">
+      <i class="material-icons">person</i>
+    </a>
+
+</div>

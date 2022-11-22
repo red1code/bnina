@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="3000"
+   height="3000"
+   viewBox="0 0 793.74998 793.75002"
+   version="1.1"
+   id="svg261"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="/home/redouane/Downloads/online-food-ressources/online-food-main-icon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     id="namedview263"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.16"
+     inkscape:cx="-672.83021"
+     inkscape:cy="1425.2298"
+     inkscape:current-layer="layer1"
+     units="px" />
+  <defs
+     id="defs258" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,396.875)">
+    <g
+       id="g5139"
+       transform="matrix(12.194203,0,0,12.194203,6426.4169,56.808566)"
+       style="fill:#d4aa00">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5087"
+         d="m -494.45985,-23.973742 a 3.2556153,3.2556153 0 0 0 -3.25562,3.255619 3.2556153,3.2556153 0 0 0 2.78019,3.216857 v 1.123976 a 23.556063,23.556063 0 0 0 -22.7366,19.6354964 h 46.41474 A 23.556063,23.556063 0 0 0 -493.98495,-16.38401 v -1.116727 a 3.2556153,3.2556153 0 0 0 2.78069,-3.217386 3.2556153,3.2556153 0 0 0 -3.25559,-3.255619 z m -23.35776,28.2902817 a 23.556063,23.556063 0 0 0 -0.19844,2.8385823 23.556063,23.556063 0 0 0 0.002,0.04908 h 47.10772 a 23.556063,23.556063 0 0 0 0.003,-0.04908 23.556063,23.556063 0 0 0 -0.19278,-2.8385823 z"
+         style="opacity:1;fill:#d4aa00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke" />
+      <path
+         inkscape:connector-curvature="0"
+         id="rect5101"
+         d="m -525.96014,8.7477919 v 0.001 c -0.27874,0.0058 -0.50321,0.2346327 -0.50332,0.5172607 -1.8e-4,0.2754837 0.21331,0.4981837 0.48212,0.5152227 h 3.40188 l 4.05866,4.8751597 h 48.19552 l 3.70417,-4.8575917 h -0.002 v -0.01757 h 3.66387 v -0.001 c 0.27874,-0.0058 0.50321,-0.234659 0.50331,-0.5172867 1.9e-4,-0.275484 -0.2133,-0.4982887 -0.48212,-0.5151957 z m 3.69435,1.0335154 h 0.0408 v 0.01757 z"
+         style="opacity:1;fill:#d4aa00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         sodipodi:nodetypes="ccccccccccccccccccc" />
+    </g>
+  </g>
+</svg>

@@ -8,11 +8,13 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BottomTabsComponent } from './components/bottom-tabs/bottom-tabs.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BottomTabsComponent
+    BottomTabsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

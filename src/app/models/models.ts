@@ -17,3 +17,11 @@ export enum AUTH_MESSAGES {
   NEW_USER = 'New User',
   ALREADY_EXIST = 'Already Exist',
 }
+
+export enum PAGES_PATH {
+  AUTH = 'auth',
+  HOME = 'home',
+  FAVORITS = 'favorits',
+  MY_ORDERS = 'my-orders',
+  PROFILE = 'profile'
+}

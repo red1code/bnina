@@ -1,0 +1,20 @@
+.container {
+  height: var(--hdr-ht);
+  padding: calc(var(--gap) / 3);
+  color: #fff;
+  background-color: var(--primary-color);
+  display: flex;
+  gap: var(--gap);
+
+  .logo img {
+    width: calc(var(--gap) * 3);
+  }
+
+  .page-title {
+    flex: 1;
+
+    strong {
+      font-size: large;
+    }
+  }
+}

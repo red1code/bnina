@@ -1,1 +1,38 @@
-<p>profile works!</p>
+<div class="container">
+  <div *ngIf="(user | async) as user" class="profile-info">
+    
+    <div>
+      <div>
+        <span></span>
+        <strong>Full name</strong>
+      </div>
+      <div>{{ user.firstName }} {{ user.lastName }}</div>
+    </div>
+    <br>
+    <div>
+      <div>
+        <span></span>
+        <strong>Email</strong>
+      </div>
+      <div>{{ user.email }}</div>
+    </div>
+    <br>
+    <div>
+      <div>
+        <span></span>
+        <strong>Phone number</strong>
+      </div>
+      <div>{{ user.phone }}</div>
+    </div>
+
+  </div>
+
+  <div class="btns">
+    <button type="button" mat-raised-button color="primary" (click)="editProfile()">
+      Edit profile
+    </button>
+    <button type="button" mat-raised-button color="warn" class="logout"(click)="logOut()">
+      Log out
+    </button>
+  </div>
+</div>

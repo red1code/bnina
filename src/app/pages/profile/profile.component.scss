@@ -1,0 +1,26 @@
+.container {
+  min-height: var(--main-ht);
+  display: flex;
+  flex-direction: column;
+
+  .profile-info {
+    flex: 1;
+    margin: var(--gap);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .btns {
+    margin: var(--gap);
+    margin-bottom: calc(var(--gap) * 2);
+
+    button {
+      width: 100%;
+    }
+
+    .logout {
+      margin-top: var(--gap);
+    }
+  }
+}

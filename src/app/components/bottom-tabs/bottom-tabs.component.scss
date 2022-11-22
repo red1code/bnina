@@ -1,5 +1,5 @@
 .container {
-  height: calc(var(--gap) * 4);
+  height: var(--bottom-ht);
   position: fixed;
   bottom: 0;
   left: 0;

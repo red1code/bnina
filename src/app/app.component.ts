@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AuthService } from './auth/services/auth.service';
 import { User } from './models/user';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,20 +10,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
-  user!: Observable<User | undefined>;
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.user = this.authService.user
+  user$: Observable<User | undefined>;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.user$ = this.authService.user;
+    this.authService.user.subscribe(usr => {
+      if (!usr) {
+        this.router.navigate(['auth']);
+      }
+    })
   }
 
-  async logOut() {
-    try {
-      await this.authService.logOut();
-      this.router.navigate(['auth']);
-    } 
-    catch (error) {
-      alert(error);
-    }
-  }
 }

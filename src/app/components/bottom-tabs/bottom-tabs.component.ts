@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/auth/services/auth.service';
-import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-bottom-tabs',
@@ -10,12 +7,8 @@ import { User } from 'src/app/models/user';
 })
 export class BottomTabsComponent implements OnInit {
 
-  user$!: Observable<User | undefined>;
+  constructor() { }
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-    this.user$ = this.authService.user
-  }
+  ngOnInit(): void { }
 
 }

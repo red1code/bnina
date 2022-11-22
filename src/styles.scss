@@ -1,7 +1,7 @@
 :root {
-  --hdr: 35px;
-  --footer: 60px;
-  --main: calc(100vh - calc(var(--hdr) + var(--footer)));
+  --hdr-ht: 5.5vh;
+  --bottom-ht: 10vh;
+  --main-ht: calc(100vh - calc(var(--hdr-ht) + var(--bottom-ht)));
   --gap: 15px;
 
   --primary-color: #643235;

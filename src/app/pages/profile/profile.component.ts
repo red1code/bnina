@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  user: Observable<User | undefined>;
+  user: Observable<User | undefined | null>;
 
   constructor(
     private router: Router,

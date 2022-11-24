@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NOTIFICATION_TYPES } from 'src/app/models/notification';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { ERRORS } from 'src/app/models/models';
@@ -12,7 +11,6 @@ import { ERRORS } from 'src/app/models/models';
 })
 export class SignupFormComponent implements OnInit {
 
-  notificationTypes = NOTIFICATION_TYPES;
   submitting = false;
   errMsg: any;
 

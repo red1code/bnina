@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NOTIFICATION_TYPES } from 'src/app/models/notification';
-import { AUTH_MESSAGES } from '../models/models';
+import { PAGES_PATH } from '../models/models';
+import { UserService } from '../services/user.service';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -15,15 +15,16 @@ export class AuthComponent implements OnInit {
   code!: string;
   submitting = false;
   codeSent = false;
-  notificationTypes = NOTIFICATION_TYPES;
   errMsg: any;
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private router: Router
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   async sendVerificationCode() {
     if (!this.phoneNumber) {
@@ -49,18 +50,17 @@ export class AuthComponent implements OnInit {
     this.submitting = true;
     try {
       const authResult = await this.authService.vefifyPhoneNumberAndSignin(this.code);
-
-      if (authResult === AUTH_MESSAGES.NEW_USER) {
-        this.router.navigate(['auth/signup']);
-      } else {
-        this.router.navigate(['home']);
-      }
-
+      this.userService.getProfile(authResult.user?.uid)
+        .subscribe(doc => {
+          doc?.firstName ? this.router.navigate([PAGES_PATH.HOME]) :
+            this.router.navigate([PAGES_PATH.SIGNUP]);
+        });
       this.codeSent = false;
     }
     catch (error) {
       this.errMsg = error;
     }
+    this.submitting = false;
   }
 
   changeNumber() {

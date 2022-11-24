@@ -42,10 +42,10 @@
 
     <div id="reCaptcha-container"></div>
 
-    <div *ngIf="errMsg" class="err-container">
+    <div *ngIf="errMsg" class="alert">
       <app-notification
-        [notificationType]="notificationTypes.ERROR" 
-        [notificationMessage]="errMsg"
+        [type]="'Error'" 
+        [message]="errMsg"
         (closeNotification)="closeNotification()">
       </app-notification>
     </div>
@@ -58,7 +58,13 @@
   <form *ngIf="codeSent===true" (ngSubmit)="vefifyCodeAndLogin()" 
         #codeForm="ngForm">
 
-    <div class="success-alert">Code sent successfully to your phone.</div>
+    <div class="alert" #successAlert>
+      <app-notification 
+        [type]="'Success'" 
+        [message]="'Code sent successfully to your phone.'" 
+        (closeNotification)="successAlert.style.display = 'none'">
+      </app-notification>
+    </div>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Verification code</mat-label>
@@ -77,10 +83,14 @@
       </button>
     </div>
 
-    <div *ngIf="errMsg" class="err-container">
+    <div class="resend-code">You didn't receive the code? 
+      <a (click)="sendVerificationCode()">Resend</a>
+    </div>
+
+    <div *ngIf="errMsg" class="alert">
       <app-notification 
-        [notificationType]="notificationTypes.ERROR" 
-        [notificationMessage]="errMsg"
+        [type]="'Error'" 
+        [message]="errMsg"
         (closeNotification)="closeNotification()">
       </app-notification>
     </div>

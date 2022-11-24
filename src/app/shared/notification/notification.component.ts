@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NOTIFICATION_TYPES } from 'src/app/models/notification';
 
 @Component({
   selector: 'app-notification',
@@ -8,9 +7,8 @@ import { NOTIFICATION_TYPES } from 'src/app/models/notification';
 })
 export class NotificationComponent implements OnInit {
 
-  types = NOTIFICATION_TYPES;
-  @Input() notificationType!: NOTIFICATION_TYPES;
-  @Input() notificationMessage!: string;
+  @Input() type!: 'Error' | 'Info' | 'Success';
+  @Input() message!: string;
   @Output() closeNotification = new EventEmitter<boolean>();
 
   constructor() { }

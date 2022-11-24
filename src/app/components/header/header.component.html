@@ -1,15 +1,17 @@
 <div class="container">
 
-  <div class="logo center-content">
+  <div class="logo center-content" routerLink="/home">
     <img src="../../../assets/bnina-logo.svg" alt="">
   </div>
 
-  <div class="page-title center-content">
+  <div *ngIf="user$ | async" class="page-title center-content">
     <strong *ngIf="pageTitle">{{ pageTitle }}</strong>
   </div>
 
-  <div class="cart center-content">
+  <div *ngIf="user$ | async" class="cart center-content">
     cart
   </div>
+
+  <a *ngIf="!(user$ | async)" type="button" mat-stroked-button routerLink="/auth">Log in</a>
 
 </div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, /*NavigationStart,*/ NavigationEnd, NavigationError } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { PAGES_PATH } from 'src/app/models/models';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +13,13 @@ import { PAGES_PATH } from 'src/app/models/models';
 export class HeaderComponent implements OnInit {
 
   pageTitle: string | undefined;
+  user$!: Observable<User | undefined | null>;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.user$ = this.authService.user;
     this.pageTitle = this.getPageTitle(router.url);
     this.router.events.subscribe((event: Event) => {
       // if (event instanceof NavigationStart) {
@@ -22,7 +30,7 @@ export class HeaderComponent implements OnInit {
       }
       if (event instanceof NavigationError) {
         // Present error to user
-        console.error(event.error);
+        console.error(event?.error);
       }
     });
   }

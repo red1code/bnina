@@ -32,18 +32,20 @@
         flex: 1;
       }
     }
+
+    .resend-code {
+      margin-top: var(--gap);
+
+      a {
+        color: var(--primary-color);
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
   }
 
-  .err-container {
+  .alert {
     margin-top: var(--gap);
-  }
-
-  .success-alert {
-    padding: var(--gap);
-    color: var(--success-color);
-    background-color: #d5f1de;
-    border: 1px solid #c0eace;
-    border-radius: 4px;
   }
 
   mat-form-field {

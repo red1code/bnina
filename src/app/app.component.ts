@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth/services/auth.service';
 import { User } from './models/user';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,18 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
 
-  user$: Observable<User | undefined>;
+  user$: Observable<User | undefined | null>;
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {
+  constructor(private authService: AuthService) {
     this.user$ = this.authService.user;
-    this.authService.user.subscribe(usr => {
-      if (!usr) {
-        this.router.navigate(['auth']);
-      }
-    })
   }
 
 }

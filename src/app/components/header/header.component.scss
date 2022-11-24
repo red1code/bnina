@@ -4,17 +4,18 @@
   color: #fff;
   background-color: var(--primary-color);
   display: flex;
+  justify-content: space-between;
   gap: var(--gap);
 
-  .logo img {
-    width: calc(var(--gap) * 3);
+  .logo {
+    cursor: pointer;
+
+    img {
+      width: calc(var(--gap) * 3);
+    }
   }
 
-  .page-title {
-    flex: 1;
-
-    strong {
-      font-size: large;
-    }
+  .page-title strong {
+    font-size: large;
   }
 }

@@ -15,11 +15,13 @@ const routes: Routes = [
   },
   {
     path: PAGES_PATH.FAVORITS,
-    loadChildren: () => import('./pages/favorits/favorits.module').then(m => m.FavoritsModule)
+    loadChildren: () => import('./pages/favorits/favorits.module').then(m => m.FavoritsModule),
+    canLoad: [AuthGuard]
   },
   {
     path: PAGES_PATH.MY_ORDERS,
-    loadChildren: () => import('./pages/my-orders/my-orders.module').then(m => m.MyOrdersModule)
+    loadChildren: () => import('./pages/my-orders/my-orders.module').then(m => m.MyOrdersModule),
+    canLoad: [AuthGuard]
   },
   {
     path: PAGES_PATH.PROFILE,

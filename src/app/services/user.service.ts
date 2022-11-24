@@ -16,13 +16,14 @@ export class UserService {
     private aFstore: AngularFirestore
   ) { }
 
-  getProfile(uid: string): Observable<User> {
+  getProfile(uid: string | undefined): Observable<User | undefined> {
+    if (!uid) return of(undefined);
     return this.aFstore
       .doc<User>(`${COLLECTIONS.PROFILES}/${uid}`)
       .valueChanges()
       .pipe(
         map(data => {
-          if (!data) throw ('User undefined!');
+          if (!data) return undefined;
           return {
             ...data,
             signupDate: new Date(data.signupDate),

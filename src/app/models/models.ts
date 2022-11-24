@@ -13,13 +13,9 @@ export enum ERRORS {
   NO_FORM_VALUES = 'No form values!'
 }
 
-export enum AUTH_MESSAGES {
-  NEW_USER = 'New User',
-  ALREADY_EXIST = 'Already Exist',
-}
-
 export enum PAGES_PATH {
   AUTH = 'auth',
+  SIGNUP = 'auth/signup',
   HOME = 'home',
   FAVORITS = 'favorits',
   MY_ORDERS = 'my-orders',

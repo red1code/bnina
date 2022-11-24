@@ -35,8 +35,8 @@
 
     <div *ngIf="errMsg" class="err-container">
       <app-notification 
-        [notificationType]="notificationTypes.ERROR" 
-        [notificationMessage]="errMsg"
+        [type]="'Error'" 
+        [message]="errMsg"
         (closeNotification)="closeNotification()">
       </app-notification>
     </div>

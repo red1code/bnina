@@ -4,8 +4,8 @@
     <img src="../../../assets/bnina-logo.svg" alt="">
   </div>
 
-  <div *ngIf="user$ | async" class="page-title center-content">
-    <strong *ngIf="pageTitle">{{ pageTitle }}</strong>
+  <div *ngIf="pageTitle" class="page-title center-content">
+    <strong>{{ pageTitle }}</strong>
   </div>
 
   <div *ngIf="user$ | async" class="cart center-content">

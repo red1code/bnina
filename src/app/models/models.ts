@@ -21,3 +21,6 @@ export enum PAGES_PATH {
   MY_ORDERS = 'my-orders',
   PROFILE = 'profile'
 }
+
+const pagesTitles = ['Home', 'Favorits', 'My Orders', 'My Profile', 'Authentication'] as const;
+export type PagesTitles = typeof pagesTitles[number];

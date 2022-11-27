@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, Event, /*NavigationStart,*/ NavigationEnd, NavigationError } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { PAGES_PATH } from 'src/app/models/models';
+import { PagesTitles, PAGES_PATH } from 'src/app/models/models';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -20,7 +20,11 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService
   ) {
     this.user$ = this.authService.user;
-    this.pageTitle = this.getPageTitle(router.url);
+    this.authService.user.subscribe(usr => {
+      if (usr) {
+        this.pageTitle = this.getPageTitle(router.url);
+      }
+    });
     this.router.events.subscribe((event: Event) => {
       // if (event instanceof NavigationStart) {
       //   console.log('Route change detected');
@@ -35,10 +39,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  private getPageTitle(url: string): string | undefined {
+  private getPageTitle(url: string): PagesTitles | undefined {
     switch (url) {
       case `/${PAGES_PATH.HOME}`:
         return 'Home';
@@ -56,8 +59,12 @@ export class HeaderComponent implements OnInit {
         return 'My Profile';
         break;
 
+      case `/${PAGES_PATH.AUTH}`:
+        return 'Authentication';
+        break;
+
       default:
-        return undefined
+        return undefined;
     }
   }
 

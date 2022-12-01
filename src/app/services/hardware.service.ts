@@ -3,6 +3,8 @@ import { App } from '@capacitor/app';
 import { Observable, merge, of, fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ERRORS } from '../models/models';
+import { Geolocation } from '@capacitor/geolocation';
+import { Capacitor } from '@capacitor/core';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +18,14 @@ export class HardwareService {
       of(navigator.onLine),
       fromEvent(window, 'online').pipe(map(() => true)),
       fromEvent(window, 'offline').pipe(map(() => false))
+    )
+  }
+
+  get geoPosition(): Promise<google.maps.LatLngLiteral> {
+    return (
+      (Capacitor.getPlatform() === 'web') ?
+        this.getGeoPositionFromNavigator() :
+        this.getGeoPositionForHybridDevices()
     )
   }
 
@@ -55,6 +65,30 @@ export class HardwareService {
   async quitApp() {
     if (confirm('Do you want to exit the app?')) {
       await App.exitApp();
+    }
+  }
+
+  private async getGeoPositionForHybridDevices(): Promise<google.maps.LatLngLiteral> {
+    const userPosition = await Geolocation.getCurrentPosition();
+    return {
+      lat: userPosition.coords.latitude,
+      lng: userPosition.coords.longitude
+    };
+  }
+
+  private async getGeoPositionFromNavigator(): Promise<google.maps.LatLngLiteral> {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: Infinity,
+      maximumAge: 0
+    };
+    const setupPositionPromise = new Promise<GeolocationPosition>((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
+    const userPosition = await setupPositionPromise;
+    return {
+      lat: userPosition.coords.latitude,
+      lng: userPosition.coords.longitude
     }
   }
 

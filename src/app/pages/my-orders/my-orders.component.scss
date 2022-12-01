@@ -1,0 +1,14 @@
+.container {
+  min-height: var(--main-ht);
+
+  .btn {
+    position: fixed;
+    bottom: calc(var(--bottom-ht) + var(--gap));
+    left: var(--gap);
+    right: var(--gap);
+
+    a {
+      width: 100%;
+    }
+  }
+}

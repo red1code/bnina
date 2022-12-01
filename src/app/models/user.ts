@@ -7,7 +7,7 @@ export interface User {
   role: ROLES;
   signupDate: number | Date;
   lastLoggedin: number | Date;
-  address?: string;
+  address?: google.maps.LatLngLiteral;
 }
 
 export enum ROLES {

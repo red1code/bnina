@@ -3,3 +3,7 @@
 <router-outlet></router-outlet>
 
 <app-bottom-tabs *ngIf="user$ | async"></app-bottom-tabs>
+
+<div *ngIf="!((user$ | async)?.firstName)" class="loader">
+  <app-loader></app-loader>
+</div>

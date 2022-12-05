@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NotificationComponent } from './notification/notification.component';
 import { MapComponent } from './map/map.component';
 import { MatInputModule } from '@angular/material/input';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
     NotificationComponent,
-    MapComponent
+    MapComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { MatInputModule } from '@angular/material/input';
   ],
   exports: [
     NotificationComponent,
-    MapComponent
+    MapComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,11 @@
 <app-header></app-header>
+<div *ngIf="!(isConnected | async)" class="alert" #alert>
+  <app-notification
+    [message]="'You are offline!'" 
+    [type]="'Error'"
+    (closeNotification)="alert.style.display = 'none'">
+  </app-notification>
+</div>
 
 <router-outlet></router-outlet>
 

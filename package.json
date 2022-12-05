@@ -24,6 +24,7 @@
     "@capacitor/android": "^4.4.0",
     "@capacitor/angular": "^2.0.3",
     "@capacitor/app": "^4.1.0",
+    "@capacitor/assets": "^2.0.4",
     "@capacitor/core": "^4.4.0",
     "@capacitor/geolocation": "^4.1.0",
     "@types/googlemaps": "^3.43.3",

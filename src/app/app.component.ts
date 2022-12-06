@@ -20,6 +20,7 @@ export class AppComponent {
   ) {
     this.user$ = this.authService.user;
     this.isConnected = this.hardwareService.isConnected;
+    this.hardwareService.triggerHardwareBackBtn();
   }
 
 }

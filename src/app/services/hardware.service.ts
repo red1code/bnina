@@ -29,7 +29,7 @@ export class HardwareService {
     )
   }
 
-  async saveToLocalStorage(dataKey: string, dataValue: any) {
+  saveToLocalStorage(dataKey: string, dataValue: any) {
     try {
       const stringifiedValue = JSON.stringify(dataValue);
       localStorage.setItem(dataKey, stringifiedValue);
@@ -39,7 +39,7 @@ export class HardwareService {
     }
   }
 
-  async getFromLocalStorage(dataKey: string) {
+  getFromLocalStorage(dataKey: string) {
     try {
       const item = localStorage.getItem(dataKey);
       if (!item) throw (ERRORS.NOT_FOUND_IN_STORAGE);
@@ -50,7 +50,7 @@ export class HardwareService {
     }
   }
 
-  async clearLocalStorage() {
+  clearLocalStorage() {
     try {
       localStorage.clear();
     }
@@ -60,6 +60,13 @@ export class HardwareService {
   }
 
   triggerHardwareBackBtn() {
+    App.addListener('backButton', (evt) => {
+      if (evt.canGoBack) {
+        window.history.back();
+        return;
+      }
+      this.quitApp();
+    })
   }
 
   async quitApp() {

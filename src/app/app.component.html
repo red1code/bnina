@@ -11,6 +11,6 @@
 
 <app-bottom-tabs *ngIf="user$ | async"></app-bottom-tabs>
 
-<div *ngIf="!((user$ | async)?.firstName)" class="loader">
+<div *ngIf="showLoader" class="loader">
   <app-loader></app-loader>
 </div>

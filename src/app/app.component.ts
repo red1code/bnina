@@ -13,6 +13,7 @@ export class AppComponent {
 
   user$: Observable<User | undefined | null>;
   isConnected: Observable<boolean>;
+  showLoader = true;
 
   constructor(
     private authService: AuthService,
@@ -21,6 +22,9 @@ export class AppComponent {
     this.user$ = this.authService.user;
     this.isConnected = this.hardwareService.isConnected;
     this.hardwareService.triggerHardwareBackBtn();
+    this.user$.subscribe(usr => {
+      this.showLoader = false;
+    })
   }
 
 }

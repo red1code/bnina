@@ -13,8 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserAddressComponent implements OnInit {
 
-  user!: User;
+  user!: User | null;
   geoPosition!: google.maps.LatLngLiteral | null;
+  oldPositionExist!: boolean;
 
   constructor(
     private router: Router,
@@ -23,9 +24,9 @@ export class UserAddressComponent implements OnInit {
     private hardwareService: HardwareService
   ) {
     this.authService.user.subscribe(usr => {
-      if (usr) {
-        this.user = usr;
-      }
+      this.user = usr || null;
+      this.geoPosition = usr?.address || null;
+      this.oldPositionExist = usr?.address ? true : false;
     })
   }
 
@@ -34,27 +35,36 @@ export class UserAddressComponent implements OnInit {
   async detectLocation() {
     try {
       this.geoPosition = await this.hardwareService.geoPosition;
-      console.warn(this.geoPosition);
     }
-    catch (error) {
-      alert(error);
+    catch (error: any) {
+      const request = '. Please activate location access from settings.';
+      const errMsg = (error.message === 'location disabled') ? error.message + request : error.message;
+      alert(errMsg);
     }
   }
 
   async confirmLocation() {
-    if (!this.user?.address && !this.geoPosition) {
-      alert('Location undefined!');
+    if (!this.user) {
+      // this can never happen because of auth guard, but code below requires this block of code!
+      alert('User undefined!');
       return;
     }
     if (!this.geoPosition) {
-      console.warn('location has been confirmed!');
-      this.router.navigate([PAGES_PATH.MY_ORDERS]);
+      // theoretically this should never happen since the button will be disabled, but I wrote it anyway :)
+      alert('Location undefined!');
+      return;
     }
-    if (this.geoPosition) {
+
+    if (!this.isNewLocation()) { // confirming the old location
+      await this.router.navigate([PAGES_PATH.MY_ORDERS]);
+      alert('Your old location has been confirmed!')
+    }
+
+    if (this.isNewLocation()) { // assigning new location
       try {
         await this.userService.updateProfile(this.user.id, { address: this.geoPosition });
-        console.warn('your location saved succefully!');
-        this.router.navigate([PAGES_PATH.MY_ORDERS]);
+        await this.router.navigate([PAGES_PATH.MY_ORDERS]);
+        alert('your new location has been confirmed!')
       }
       catch (error) {
         alert(error);
@@ -62,6 +72,15 @@ export class UserAddressComponent implements OnInit {
     }
   }
 
-  changePosition(position: google.maps.LatLngLiteral) { }
+  changePosition(position: google.maps.LatLngLiteral) {
+    this.geoPosition = position;
+  }
+
+  private isNewLocation(): boolean {
+    if (!this.user?.address || (this.geoPosition !== this.user?.address)) {
+      return true;
+    }
+    return false;
+  }
 
 }

@@ -1,4 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild, Input, AfterViewInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component, ElementRef, OnInit, ViewChild, Input, AfterViewInit, Output, EventEmitter, OnChanges, SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -75,6 +77,26 @@ export class MapComponent implements OnInit, OnChanges, AfterViewInit {
       };
     });
     // this.addMarker(this.center ?? COORDINATES.DEFAULT, this.map);
+
+    map.addListener('click', (evt: google.maps.MapMouseEvent) => {
+      if (evt.latLng) {
+        this.addMarker(evt.latLng, map);
+      }
+    });
+  }
+
+  addMarker(latLng: google.maps.LatLng, map: google.maps.Map) {
+    // delete old marker if exist
+    this.marker?.setMap(null);
+    this.marker = null;
+    // create a new marker
+    this.marker = new google.maps.Marker({
+      position: latLng,
+      title: 'My position'
+    });
+    // assign the new marker to the map
+    this.marker?.setMap(map);
+    this.positionChanged.emit({ lat: latLng.lat(), lng: latLng.lng() })
   }
 
 }

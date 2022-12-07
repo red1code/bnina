@@ -4,18 +4,18 @@
     <div>So we can deliver your orders</div>
   </div>
 
-  <app-map *ngIf="user?.address || geoPosition"
-    [center]="user.address ?? geoPosition" 
+  <app-map *ngIf="geoPosition"
+    [center]="geoPosition" 
     [showInputSearchLocation]="false" 
     (positionChanged)="changePosition($event)">
   </app-map>
 
-  <div *ngIf="user?.address">
+  <div *ngIf="oldPositionExist">
     The map shows your old location. You can either confirm it or press "Detect Location" button.
   </div>
 
   <div class="btns">
-    <button *ngIf="user?.address || geoPosition" type="button" mat-raised-button color="primary" 
+    <button *ngIf="geoPosition" type="button" mat-raised-button color="primary" 
             (click)="confirmLocation()">
       Confirm Location
     </button>

@@ -52,10 +52,11 @@ export class AuthComponent implements OnInit {
       const authResult = await this.authService.vefifyPhoneNumberAndSignin(this.code);
       this.userService.getProfile(authResult.user?.uid)
         .subscribe(doc => {
-          doc?.firstName ? this.router.navigate([PAGES_PATH.HOME]) :
+          doc?.firstName ?
+            this.router.navigate([PAGES_PATH.HOME]) :
             this.router.navigate([PAGES_PATH.SIGNUP]);
+          this.codeSent = false;
         });
-      this.codeSent = false;
     }
     catch (error) {
       this.errMsg = error;

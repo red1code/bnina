@@ -1,3 +1,4 @@
+import { HardwareService } from './../../services/hardware.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -15,7 +16,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private hardwareService: HardwareService
   ) {
     this.user = this.authService.user;
   }
@@ -29,8 +31,19 @@ export class ProfileComponent implements OnInit {
 
   async logOut() {
     try {
-      await this.authService.logOut();
-      this.router.navigate(['auth']);
+      if (confirm('Are you sure to log out?')) {
+        await this.authService.logOut();
+        this.router.navigate(['auth']);
+      }
+    }
+    catch (error) {
+      alert(error);
+    }
+  }
+
+  async exitApp() {
+    try {
+      await this.hardwareService.quitApp();
     }
     catch (error) {
       alert(error);

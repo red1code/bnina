@@ -1,3 +1,4 @@
+import { Meal } from './../../models/meal';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -7,11 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class MealComponent implements OnInit {
 
-  @Input() src!: string;
-  @Input() title: string = 'Baked Salmon';
-  @Input() details!: string;
-  @Input() price!: number;
-  @Output() addToCart = new EventEmitter<string>();
+  @Input() meal!: Meal;
+  @Output() addToCart = new EventEmitter<Meal>();
+  @Output() addToFavorites = new EventEmitter<Meal>();
   fav = false;
 
   constructor() { }
@@ -20,7 +19,12 @@ export class MealComponent implements OnInit {
   }
 
   onAddToCart() {
-    this.addToCart.emit('Add to cart button clicked!')
+    this.addToCart.emit(this.meal);
+  }
+
+  onaddToFavorites() {
+    this.addToFavorites.emit(this.meal);
+    this.fav = true;
   }
 
 }

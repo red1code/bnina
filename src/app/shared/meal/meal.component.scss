@@ -47,6 +47,7 @@
   .meal-info {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: calc(var(--gap) / 3);
 
     h2 {

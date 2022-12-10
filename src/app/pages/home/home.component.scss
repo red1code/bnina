@@ -1,0 +1,9 @@
+.container {
+  padding-top: calc(var(--hdr-ht) + var(--gap) * 2);
+  padding-left: var(--gap);
+  padding-bottom: calc(var(--bottom-ht) + var(--gap));
+  padding-right: var(--gap);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}

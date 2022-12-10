@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="container">
+  <div class="meal" *ngFor="let meal of meals">
+    <app-meal
+      [meal]="meal"
+      (addToCart)="addToCart($event)"
+      (addToFavorites)="addToFavorites($event)">
+    </app-meal>
+  </div>
+</div>

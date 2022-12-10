@@ -1,4 +1,8 @@
 .container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: var(--hdr-ht);
   padding: calc(var(--gap) / 3);
   color: #fff;
@@ -6,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   gap: var(--gap);
+  z-index: 100;
 
   .logo {
     cursor: pointer;

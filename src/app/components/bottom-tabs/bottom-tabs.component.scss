@@ -8,6 +8,7 @@
   background-color: var(--primary-color);
   display: flex;
   gap: calc(var(--gap) / 2);
+  z-index: 100;
 }
 
 .tab {
@@ -18,7 +19,7 @@
   cursor: pointer;
 }
 
-.tab:hover, .active-link {
+.active-link {
   color: var(--accent-color);
 }
 

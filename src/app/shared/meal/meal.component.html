@@ -2,23 +2,23 @@
 
   <div class="meal-img">
 
-    <span class="favorite box-shadow" (click)="fav=true">
+    <span class="favorite box-shadow" (click)="onaddToFavorites()">
       <mat-icon [ngClass]="{'favorited': fav}">favorite</mat-icon>
     </span>
 
-    <img [src]="src" alt="{{title}} photo" title="{{title}}">
+    <img [src]="meal.imgSrc" alt="Photo of {{meal.name}}" title="{{meal.name}}">
 
   </div>
 
   <div class="meal-info">
 
-    <h2>{{ title }}</h2>
+    <h3>{{ meal.name }}</h3>
 
-    <small>{{ details }}</small>
+    <!-- <small>{{ details }}</small> -->
 
     <div class="content_bottom">
 
-      <span class="price">{{ price | currency:' DA ' }}</span>
+      <span class="price">{{ meal.price | currency:' DA ' }}</span>
 
       <button type="button" (click)="onAddToCart()">
         <mat-icon>add_shopping_cart</mat-icon>

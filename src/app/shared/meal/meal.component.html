@@ -1,0 +1,32 @@
+<div class="container box-shadow">
+
+  <div class="meal-img">
+
+    <span class="favorite box-shadow" (click)="fav=true">
+      <mat-icon [ngClass]="{'favorited': fav}">favorite</mat-icon>
+    </span>
+
+    <img [src]="src" alt="{{title}} photo" title="{{title}}">
+
+  </div>
+
+  <div class="meal-info">
+
+    <h2>{{ title }}</h2>
+
+    <small>{{ details }}</small>
+
+    <div class="content_bottom">
+
+      <span class="price">{{ price | currency:' DA ' }}</span>
+
+      <button type="button" (click)="onAddToCart()">
+        <mat-icon>add_shopping_cart</mat-icon>
+        <!-- Add to cart -->
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
